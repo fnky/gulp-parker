@@ -1,0 +1,38 @@
+{
+  "name": "gulp-parker",
+  "version": "0.1.0",
+  "description": "Gulp plugin for parker, a stylesheet analysis tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "gulp",
+    "parker",
+    "gulpplugin",
+    "analysis"
+  ],
+  "author": "Christian Petersen (http://cbp.io/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fnky/gulp-parker"
+  },
+  "bugs": {
+    "url": "https://github.com/fnky/gulp-parker/issues"
+  },
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "clone": "^0.2.0",
+    "clone-stats": "0.0.1",
+    "gulp-util": "^3.0.3",
+    "lodash": "^3.1.0",
+    "parker": "0.0.8",
+    "through2": "^0.6.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "mocha": "^2.1.0",
+    "tape": "^3.5.0"
+  }
+}
