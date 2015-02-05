@@ -1,4 +1,5 @@
 # gulp-parker
+![Travis Build Status](https://travis-ci.org/fnky/gulp-parker.svg)
 
 Gulp plugin for [Parker](https://github.com/katiefenn/parker), a stylesheet analysis tool.
 
