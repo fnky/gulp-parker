@@ -1,10 +1,6 @@
-var gutil = require('gulp-util');
-var fs = require('fs');
 var _ = require('lodash');
 var through = require('through2');
 var Parker = require('parker');
-var path = require('path');
-var ext = gutil.replaceExtension;
 
 module.exports = function(options) {
   options = _.defaults(options || {}, {
@@ -17,8 +13,13 @@ module.exports = function(options) {
 
   // @TODO allow for custom metrics (anonymous functions)
   if (_.isArray(metrics)) {
+
     _.forEach(metrics, function(metric) {
-      includedMetrics.push(require('./node_modules/parker/metrics/' + metric + '.js'));
+      if(_.isString(metric)) {
+        includedMetrics.push(require('./node_modules/parker/metrics/' + metric + '.js'));
+      } else {
+        includedMetrics.push(metric);
+      }
     });
   } else {
     includedMetrics = require('./node_modules/parker/metrics/All.js');
@@ -34,7 +35,7 @@ module.exports = function(options) {
   var formats = require('./formats');
 
   var stream = through.obj(function(file, enc, cb) {
-    var results = parker.run(file.relative);
+    var results = parker.run(file.contents.toString());
     var obj = {};
 
     cb(null, formats[options.format](results, file, enc));
