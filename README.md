@@ -1,4 +1,4 @@
-# gulp-parker
+# gulp-parker2
 [![Travis Build Status](https://travis-ci.org/fnky/gulp-parker.svg?branch=master)](https://travis-ci.org/fnky/gulp-parker)
 
 Gulp plugin for [Parker](https://github.com/katiefenn/parker), a stylesheet analysis tool.
@@ -6,14 +6,16 @@ Gulp plugin for [Parker](https://github.com/katiefenn/parker), a stylesheet anal
 ## Install
 
 ```bash
-npm install --save-dev gulp-parker
+npm install --save-dev gulp-parker2
 ```
+
+**NOTE**: Since `gulp-parker` were already taken, I had to rename my plugin to `gulp-parker2`.
 
 ## Usage
 
 ```js
 var gulp = require('gulp');
-var parker = require('gulp-parker');
+var parker = require('gulp-parker2');
 
 gulp.task('parker', function() {
     return gulp.src('./css/*.css')
@@ -43,9 +45,10 @@ Define which format the results should be printed in. Currently supported:
 
 ## Todos
 
-- Defining custom metrics
+- --Defining custom metrics--
 - Defining custom formats
-- Proper error checking
+- --Proper error checking--
+- Implement latest Parker features
 
 ## Contributing
 
