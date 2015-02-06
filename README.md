@@ -25,9 +25,27 @@ Options are passed into `parker()` as an object and will be passed to parker asw
 
 ## Options
 
-### `due: callback`
+#### `metrics: array`
 
-Does something very cool.
+Default: **All**
+
+Define a range of metrics you'd like to run. [See a list of available metrics](https://github.com/katiefenn/parker/blob/master/docs/metrics/readme.md#bundled-metrics) for Parker
+
+#### `format: string`
+
+Default: **json**
+
+Define which format the results should be printed in. Currently supported:
+
+- json
+- human
+- object (will not print, used to e.g. pipe)
+
+## Todos
+
+- Defining custom metrics
+- Defining custom formats
+- Proper error checking
 
 ## Contributing
 
