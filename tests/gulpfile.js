@@ -1,21 +1,26 @@
 var gulp = require('gulp');
 var parker = require('..');
 
-gulp.task('parker', function() {
-  var s = gulp.src('./css/*.css')
-    .pipe(parker({
-      metrics: [
-        'TotalRules',
-        'TotalStylesheets'
-      ],
-      format: 'json'
-    })).on('data', function(data) {
-      console.log(data);
-    }).on('error', function(data) {
-      console.log(data);
-    });
+var mediaQueriesMetric = {
+    id: 'media-queries',
+    name: 'Media Queries',
+    type: 'mediaquery',
+    aggregate: 'list',
+    format: 'list',
+    measure: function (query) {
+        return query;
+    },
+    filter: function (value, index, self) {
+        return self.indexOf(value) === index;
+    }
+};
 
-  //console.log(s);
+gulp.task('parker', function() {
+  var s = gulp.src('./css/a.css')
+    .pipe(parker({ metrics: [
+      'TotalStylesheets',
+      mediaQueriesMetric
+    ], format: 'human' }))
   return s;
 });
 
