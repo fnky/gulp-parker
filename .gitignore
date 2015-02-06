@@ -1,3 +1,7 @@
-node_modules/
 .DS_Store
 *.log
+node_modules
+build
+*.node
+components
+coverage
