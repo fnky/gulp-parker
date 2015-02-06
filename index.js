@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var gutil = require('gulp-util');
 var through = require('through2');
 var Parker = require('parker');
 
@@ -34,12 +35,26 @@ module.exports = function(options) {
 
   var formats = require('./formats');
 
-  var stream = through.obj(function(file, enc, cb) {
-    var results = parker.run(file.contents.toString());
-    var obj = {};
+  return through.obj(function(file, enc, cb) {
 
-    cb(null, formats[options.format](results, file, enc));
+    if (file.isNull()) {
+      cb(null, file);
+      return;
+    }
+
+    if (file.isStream()) {
+      cb(new gutil.PluginError('gulp-parker', 'Streaming not supported'));
+      return;
+    }
+
+    var results;
+    try {
+      results = parker.run(file.contents.toString());
+      this.push(formats[options.format](results, file, enc));
+    } catch (err) {
+      this.emit('error', new gutil.PluginError('gulp-parker', err, { fileName: file.path }));
+    }
+
+    cb();
   });
-
-  return stream;
 };
