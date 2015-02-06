@@ -4,7 +4,7 @@
   "description": "Gulp plugin for parker, a stylesheet analysis tool",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha tests/test.js"
+    "test": "./node_modules/.bin/mocha --reporter spec tests/test.js"
   },
   "keywords": [
     "gulp",
@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "gulp": "^3.8.10",
-    "mocha": "^2.1.0",
-    "tape": "^3.5.0"
+    "mocha": "^2.1.0"
   }
 }
