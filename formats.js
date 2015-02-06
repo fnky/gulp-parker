@@ -2,9 +2,12 @@ var path = require('path');
 var _ = require('lodash');
 var chalk = require('chalk');
 
+module.exports.object = function(results, file, enc) {
+  return results;
+};
+
 module.exports.json = function(results, file, enc) {
-  obj = results;
-  return obj;
+  return console.log(results);
 };
 
 var humanize = function(file, results) {
@@ -40,7 +43,7 @@ var humanize = function(file, results) {
 
     if (_.isArray(value)) {
       if(value.length > 0) {
-        console.log(styles.title('high', name), styles.value(value.split(',')));
+        console.log(styles.title('high', name), styles.value(value.join(', ')));
       } else {
         console.log(styles.title('low', name), styles.value('none'));
       }
