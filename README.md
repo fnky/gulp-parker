@@ -47,9 +47,9 @@ Define which format the results should be printed in. Currently supported:
 
 ## Todos
 
-- --Defining custom metrics--
+- ~~Defining custom metrics~~
 - Defining custom formats
-- --Proper error checking--
+- ~~Proper error checking~~
 - Implement latest Parker features
 
 ## Contributing
